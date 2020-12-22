@@ -34,8 +34,7 @@ export class PlacementTestComponent implements OnInit {
         Grade: grades.WritingGrade
       }
     };
-    console.log(grade);
-    console.log(grades);
+
     this.gradeService.createGrade(grade).subscribe(x => {
       var newBlob = new Blob([x], { type: "application/application/vnd.openxmlformats-officedocument.documentml.document" });
 
