@@ -25,9 +25,20 @@ export class PlacementTestComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(grades) {
-    //const grade = new PlacementGrade(grades.name, Number(grades.reading), Number(grades.writing), Number(grades.listening), Number(grades.speaking));
-    this.gradeService.createGrade(grades).subscribe(response => this.downLoadFile(response, "application/vnd.openxmlformats-officedocument.documentml.document"));
+  onSubmit(grades) {    
+    this.gradeService.createGrade(grades).subscribe(x => 
+      {
+        var newBlob = new Blob([x], { type: "application/application/vnd.openxmlformats-officedocument.documentml.document" });
+  
+        const data = window.URL.createObjectURL(newBlob);
+  
+              var link = document.createElement('a');
+              link.href = data;
+              link.download = "test.docx";
+              // this is necessary as link.click() does not work on the latest firefox
+              link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+      }
+    );
   }
 
   downLoadFile(data: any, type: string) {
