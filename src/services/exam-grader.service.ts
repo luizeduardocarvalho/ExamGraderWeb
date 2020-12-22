@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { PlacementGrade } from '../models/placement-grade';
 import { Observable } from 'rxjs';
 
 @Injectable({
