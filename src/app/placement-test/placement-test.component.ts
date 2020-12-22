@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { PlacementGrade } from '../../models/placement-grade';
 import { ExamGraderService } from '../../services/exam-grader.service';
 
 @Component({
@@ -17,8 +16,8 @@ export class PlacementTestComponent implements OnInit {
       StudentName: '',
       Reading: '',
       Listening: '',
-      Writing: '',
-      Speaking: ''
+      WritingText: '',
+      WritingGrade: ''
     });
   }
 
@@ -26,7 +25,18 @@ export class PlacementTestComponent implements OnInit {
   }
 
   onSubmit(grades) {
-    this.gradeService.createGrade(grades).subscribe(x => {
+    var grade = {
+      StudentName: grades.StudentName,
+      Reading: grades.Reading,
+      Listening: grades.Listening,
+      Writing: {
+        Text: grades.WritingText,
+        Grade: grades.WritingGrade
+      }
+    };
+    console.log(grade);
+    console.log(grades);
+    this.gradeService.createGrade(grade).subscribe(x => {
       var newBlob = new Blob([x], { type: "application/application/vnd.openxmlformats-officedocument.documentml.document" });
 
       const data = window.URL.createObjectURL(newBlob);
