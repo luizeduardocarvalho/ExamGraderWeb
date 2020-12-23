@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ExamGraderService } from '../../services/exam-grader.service';
 
-@Component({
-  selector: 'app-placement-test',
-  templateUrl: './placement-test.component.html',
-  styleUrls: ['./placement-test.component.css']
+@Component({  
+  templateUrl: './fce.component.html',
+  styleUrls: ['./fce.component.css']
 })
-export class PlacementTestComponent implements OnInit {
+export class FceComponent implements OnInit {
 
   gradeForm;
 
@@ -16,26 +15,16 @@ export class PlacementTestComponent implements OnInit {
       StudentName: '',
       Reading: '',
       Listening: '',
-      WritingText: '',
-      WritingGrade: ''
+      Writing: '',
+      Speaking: ''
     });
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit(grades) {
-    var grade = {
-      StudentName: grades.StudentName,
-      Reading: grades.Reading,
-      Listening: grades.Listening,
-      Writing: {
-        Text: grades.WritingText,
-        Grade: grades.WritingGrade
-      }
-    };
-
-    this.gradeService.createPlacementTestGrade(grade).subscribe(x => {
+  onSubmit(grades) {  
+    this.gradeService.createFceGrade(grades).subscribe(x => {
       var newBlob = new Blob([x], { type: "application/application/vnd.openxmlformats-officedocument.documentml.document" });
 
       const data = window.URL.createObjectURL(newBlob);

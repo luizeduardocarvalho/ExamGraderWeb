@@ -1,0 +1,28 @@
+<form [formGroup]="gradeForm" (ngSubmit)="onSubmit(gradeForm.value)" class="col-lg-4 offset-lg-4 pt-5">
+	<div class="form-group">
+		<label for="name">Name</label>
+		<input type="text" formControlName="StudentName" class="form-control" id="name" aria-describedby="name"
+			placeholder="Enter student's name">
+	</div>
+	<div class="form-group">
+		<label for="reading">Reading</label>
+		<input type="text" formControlName="Reading" class="form-control" id="reading" aria-describedby="reading"
+			placeholder="Enter reading grade">
+	</div>
+	<div class="form-group">
+        <label for="writing">Writing</label>
+        <input type="text" formControlName="Writing" class="form-control" id="writing" aria-describedby="writing"
+            placeholder="Enter writing grade">
+    </div>
+    <div class="form-group">
+        <label for="speaking">Speaking</label>
+        <input type="text" formControlName="Speaking" class="form-control" id="speaking" aria-describedby="speaking"
+            placeholder="Enter speaking grade">
+    </div>
+	<div class="form-group">
+		<label for="listening">Listening</label>
+		<input type="text" formControlName="Listening" class="form-control" id="listening" aria-describedby="listening"
+			placeholder="Enter listening grade">
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>

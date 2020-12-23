@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ExamGraderService {
 
-  url = 'https://exam-grader.herokuapp.com/api/grade/placement-test';
+  baseUrl = 'https://exam-grader.herokuapp.com/api/grade/';
   
   constructor(private httpClient: HttpClient) { }
   
@@ -15,7 +15,23 @@ export class ExamGraderService {
     headers: new HttpHeaders({ 'Content-Type': 'application/vnd.openxmlformats-officedocument.documentml.document', 'Access-Control-Allow-Origin': '*'})
   }
 
-  createGrade(grade: any): Observable<Blob> {    
-    return this.httpClient.post(this.url, grade, { responseType: 'blob' });
+  createPlacementTestGrade(grade: any): Observable<Blob> {
+    const url =  this.baseUrl + 'placement-test';
+    return this.httpClient.post(url, grade, { responseType: 'blob' });
+  }
+
+  createPetGrade(grade: any): Observable<Blob> {
+    const url =  this.baseUrl + 'pet';
+    return this.httpClient.post(url, grade, { responseType: 'blob' });
+  }
+
+  createFceGrade(grade: any): Observable<Blob> {
+    const url =  this.baseUrl + 'fce';
+    return this.httpClient.post(url, grade, { responseType: 'blob' });
+  }
+
+  createCaeGrade(grade: any): Observable<Blob> {
+    const url =  this.baseUrl + 'cae';
+    return this.httpClient.post(url, grade, { responseType: 'blob' });
   }
 }
