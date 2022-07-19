@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <div class="form-group">
+    <label for="file">Choose File</label>
+    <input type="file" id="file" (change)="onFileSelect($event.target.files)" />
+    <button (click)="onSubmit()">Upload</button>
+  </div>
+</div>

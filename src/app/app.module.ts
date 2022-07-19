@@ -9,6 +9,7 @@ import { PlacementTestComponent } from './placement-test/placement-test.componen
 import { PetComponent } from './pet/pet.component';
 import { FceComponent } from './fce/fce.component';
 import { CaeComponent } from './cae/cae.component';
+import { ImportFileComponent } from './import-file/import-file.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CaeComponent } from './cae/cae.component';
     PlacementTestComponent,
     PetComponent,
     FceComponent,
-    CaeComponent
+    CaeComponent,
+    ImportFileComponent
   ],
   imports: [
     BrowserModule,

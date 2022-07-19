@@ -4,17 +4,19 @@ import { PlacementTestComponent } from './placement-test/placement-test.componen
 import { PetComponent } from './pet/pet.component';
 import { FceComponent } from './fce/fce.component';
 import { CaeComponent } from './cae/cae.component';
-
+import { AppComponent } from './app.component';
+import { ImportFileComponent } from './import-file/import-file.component';
 
 const routes: Routes = [
-  { path: 'placement-test', component: PlacementTestComponent},
-  { path: 'pet', component: PetComponent},
-  { path: 'fce', component: FceComponent},
-  { path: 'cae', component: CaeComponent}
+  { path: 'placement-test', component: PlacementTestComponent },
+  { path: 'pet', component: PetComponent },
+  { path: 'fce', component: FceComponent },
+  { path: 'cae', component: CaeComponent },
+  { path: '', component: ImportFileComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

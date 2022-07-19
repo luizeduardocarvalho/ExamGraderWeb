@@ -1,0 +1,19 @@
+.wrapper
+{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    margin-inline: 2em;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3em;
+    padding: 0.3em 1em 0.3em 1em;
+}
